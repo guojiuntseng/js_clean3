@@ -53,7 +53,9 @@
       },
       save() {
         let action = new AddBudgetAction();
-        action.do(this.budget, () => this._goToBudgetList(), this.errors)
+        action.budget = this.budget
+        action.errors = this.errors
+        action.do(() => this._goToBudgetList())
       },
       cancel() {
         this._goToBudgetList()

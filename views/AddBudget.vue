@@ -48,7 +48,7 @@
         this.$router.push('/budgets')
       },
       save() {
-        presenter.do(() => this._goToBudgetList())
+        presenter.save(() => this._goToBudgetList())
       },
       cancel() {
         this._goToBudgetList()

@@ -4,7 +4,7 @@ export default class AddBudgetAction {
     budget = {month: '', amount: 0}
     errors = {month: '', amount : ''}
 
-    do(success) {
+    save(success) {
         let monthValid, amountValid
         if (this.budget.month === '') {
           this.errors.month = 'Month cannot be empty'

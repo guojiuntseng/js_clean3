@@ -32,19 +32,15 @@
 
 <script>
   import Api from "../api"
-  import AddBudgetAction from "../domain/addBudgetAction" 
+  import AddBudgetPresenter from "../domain/addBudgetAction";
   
+  let presenter  = new AddBudgetPresenter();
+
   export default {
     data() {
       return {
-        budget: {
-          month: '',
-          amount: 0
-        },
-        errors: {
-          month: '',
-          amount: ''
-        }
+        budget: presenter.budget,
+        errors: presenter.errors
       }
     },
     methods: {
@@ -52,10 +48,7 @@
         this.$router.push('/budgets')
       },
       save() {
-        let action = new AddBudgetAction();
-        action.budget = this.budget
-        action.errors = this.errors
-        action.do(() => this._goToBudgetList())
+        presenter.do(() => this._goToBudgetList())
       },
       cancel() {
         this._goToBudgetList()

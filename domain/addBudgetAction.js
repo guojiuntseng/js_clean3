@@ -1,7 +1,9 @@
 
 export default class AddBudgetAction {
-    budget = {}
-    errors = {}
+    
+    budget = {month: '', amount: 0}
+    errors = {month: '', amount : ''}
+
     do(success) {
         let monthValid, amountValid
         if (this.budget.month === '') {
